@@ -15,6 +15,7 @@ from react_agent.context import Context
 from react_agent.state import InputState, State
 from react_agent.tools import TOOLS
 from react_agent.utils import load_chat_model
+from langgraph.types import interrupt
 
 # Define the function that calls the model
 
@@ -33,6 +34,7 @@ async def call_model(
     Returns:
         dict: A dictionary containing the model's response message.
     """
+    foo = interrupt("Do you approve this action?")
     # Initialize the model with tool binding. Change the model or add more tools here.
     model = load_chat_model(runtime.context.model).bind_tools(TOOLS)
 
