@@ -34,7 +34,7 @@ async def call_model(
     Returns:
         dict: A dictionary containing the model's response message.
     """
-    foo = interrupt("Do you approve this action?")
+    foo = interrupt({"question":"Do you approve this action?"})
     # Initialize the model with tool binding. Change the model or add more tools here.
     model = load_chat_model(runtime.context.model).bind_tools(TOOLS)
 
